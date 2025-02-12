@@ -4,4 +4,14 @@
 
 ## Dépendance installé
 
-`npm i nodemon express gitignore bcrypt dotenv mongoose cloudinary fs multer jsonwebtoken cookie-parser`
+`npm i nodemon express gitignore bcrypt dotenv mongoose cloudinary fs multer jsonwebtoken`
+
+##
+
+```
+npm start
+```
+
+```
+npm run dev
+```
