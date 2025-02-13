@@ -11,3 +11,8 @@ Rapport de Projet (Exemple)
 
 lors de la comparaison du token avec token secret ça renvoyer false car mal parametrer le postman
 solution -> recupere token, aller onglet Authorization, selectionner Bearer Token et coller son token
+
+### Erreur Deploiement render
+
+Root Directory j'avais laissé vide , j'ai eu une erreur 
+solution -> remplir avec  "backend"

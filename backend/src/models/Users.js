@@ -30,4 +30,17 @@ userSchema.methods.generateToken = function () {
   }
 };
 
+// Middleware pour limiter le nombre d'admins à 1
+userSchema.pre("validate", async function (next) {
+  if (this.role === "admin") {
+    const adminCount = await mongoose
+      .model("User")
+      .countDocuments({ role: "admin" });
+    if (adminCount > 0) {
+      return next(new Error("Only one admin is allowed"));
+    }
+  }
+  next();
+});
+
 module.exports = mongoose.model("User", userSchema);

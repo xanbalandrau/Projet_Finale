@@ -1,7 +1,5 @@
 # Back-end
 
-## Description
-
 ## Prérequis
 
 - Node.js
@@ -9,14 +7,16 @@
 
 ## Dépendance installé
 
-<img src="../ressources/screendupackage">
+<img src="../ressources/dependance.png">
 
 ## Lancé
 
 ```
 npm start
 ```
+
 Pour les dev :
+
 ```
 npm run dev
 ```
@@ -32,7 +32,7 @@ password : xan
 
 ## UML
 
-<img src="../ressources/" width="1000">
+<img src="../ressources/UML de classe.png" width="1000">
 
 ## Structure du projet
 
@@ -40,22 +40,27 @@ password : xan
 .
 ├── node_modules
 ├── uploads
+├── logs
+│   ├── all.log
+|
 ├── src/
 │   ├── controllers/
 │   │   ├── skillController.js
 │   │   ├── userController.js
-│   ├── db/
+│   ├── config/
 │   │   ├── db.js
+│   │   ├── logger.js
 │   ├── middleware/
 │   │   ├── authMiddleware.js
 │   │   ├── errorHandler.js
+│   │   ├── morganMiddleware.js
 │   ├── models/
 │   │   ├── Settings.js
 │   │   ├── Skills.js
 │   │   ├── User.js
 │   ├── routes/
-│   │   ├── skillRoutes.js
-│   │   ├── userRoutes.js
+│       ├── skillRoutes.js
+│       ├── userRoutes.js
 ├── .env
 ├── .gitignore
 ├── package.json
@@ -66,7 +71,11 @@ password : xan
 - Dans .env :
 
 ```
-
+MONGO_URI = <votre URI de connexion MongoDB>
+CLOUD_NAME = <votre nom de compte Cloudinary>
+API_KEY = <votre clé API Cloudinary>
+API_SECRET = <votre clé secrète API Cloudinary>
+JWT_SECRET = <votre clé secrète pour JWT>
 ```
 
 - Dans .gitignore :
