@@ -27,4 +27,18 @@ const protect = async (req, res, next) => {
     res.status(500).json({ message: "Error verifying token", error });
   }
 };
-module.exports = protect;
+
+const protectAdmin = async (req, res, next) => {
+  try {
+    if (req.user.role === "admin") {
+      next();
+    } else {
+      return res.status(401).json({ message: "Vous n'avez pas les droits" });
+    }
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Erreur lors de l'authentification admin", error });
+  }
+};
+module.exports = { protect, protectAdmin };

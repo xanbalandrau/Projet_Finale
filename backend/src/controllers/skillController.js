@@ -9,12 +9,12 @@ cloudinary.config({
   api_secret: process.env.API_SECRET,
 });
 
-exports.createSkill = async (req, res) => {
+exports.createSkill = async (req, res, next) => {
   const { title, category, level } = req.body;
   const userId = req.user._id;
   try {
     if (!req.file) {
-      return res.status(400).json({ message: "Image is required" });
+      return next({ status: 400, message: "Image is required" });
     }
 
     const uploadResult = await cloudinary.uploader.upload(req.file.path, {
@@ -43,19 +43,17 @@ exports.createSkill = async (req, res) => {
 
     res.status(201).json({ message: "Skill created successfully", user });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error creating skill", error: `${error}` });
+    next(error);
   }
 };
 
-exports.deleteSkill = async (req, res) => {
+exports.deleteSkill = async (req, res, next) => {
   const userId = req.user._id;
   const skillId = req.params.id;
   try {
     const skill = await Skill.findByIdAndDelete(skillId);
     if (!skill) {
-      return res.status(404).json({ message: "Skill not found" });
+      return next({ status: 404, message: "Skill not found" });
     }
 
     if (skill.public_id) {
@@ -63,15 +61,15 @@ exports.deleteSkill = async (req, res) => {
         const cloudinaryResponse = await cloudinary.uploader.destroy(
           skill.public_id
         );
-        console.log("Réponse de Cloudinary :", cloudinaryResponse);
 
         if (cloudinaryResponse.result !== "ok") {
-          throw new Error("Échec de la suppression de l'image sur Cloudinary");
+          throw new Error("Error deleting image on Cloudinary");
         }
       } catch (cloudinaryError) {
-        console.error("Erreur Cloudinary :", cloudinaryError);
-        return res.status(500).json({
-          message: "Erreur lors de la suppression de l'image sur Cloudinary",
+        console.error("Error Cloudinary :", cloudinaryError);
+        return next({
+          status: 500,
+          message: "Error deleting image on Cloudinary",
           error: cloudinaryError,
         });
       }
@@ -86,20 +84,20 @@ exports.deleteSkill = async (req, res) => {
     await user.save();
     res.status(200).json({ message: "Skill deleted successfully", user });
   } catch (error) {
-    res.status(500).json({ message: "Error deleting skill", error });
+    next(error);
   }
 };
 
-exports.getAllSkills = async (req, res) => {
+exports.getAllSkills = async (req, res, next) => {
   try {
     const skills = await Skill.find().select("-public_id");
     res.status(200).json({ skills });
   } catch (error) {
-    res.status(500).json({ message: "Error getting skills", error });
+    next(error);
   }
 };
 
-exports.updateSkill = async (req, res) => {
+exports.updateSkill = async (req, res, next) => {
   try {
     const { title, category, level } = req.body;
     const skillId = req.params.id;
@@ -136,13 +134,11 @@ exports.updateSkill = async (req, res) => {
     );
 
     if (!skill) {
-      return res.status(404).json({ message: "Skill non trouvée" });
+      return next({ status: 404, message: "Skill not found" });
     }
 
     res.status(200).json({ message: "Skill updated successfully", skill });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error updating skill", error: error.message });
+    next(error);
   }
 };
