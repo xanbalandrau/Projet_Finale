@@ -22,9 +22,13 @@ const userSchema = new mongoose.Schema(
 
 userSchema.methods.generateToken = function () {
   try {
-    return jwt.sign({ _id: this._id }, process.env.JWT_SECRET, {
-      expiresIn: "2d",
-    });
+    return jwt.sign(
+      { _id: this._id, role: this.role },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "2d",
+      }
+    );
   } catch (error) {
     console.error("Error generating token:", error);
   }
@@ -36,7 +40,7 @@ userSchema.pre("validate", async function (next) {
     const adminCount = await mongoose
       .model("User")
       .countDocuments({ role: "admin" });
-    if (adminCount > 0) {
+    if (adminCount > 1) {
       return next(new Error("Only one admin is allowed"));
     }
   }

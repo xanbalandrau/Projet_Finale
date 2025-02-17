@@ -117,8 +117,12 @@ exports.updateSkill = async (req, res, next) => {
       public_id = uploadResult.public_id;
 
       if (req.body.public_id) {
-        // delete the old image
-        await cloudinary.uploader.destroy(req.body.public_id);
+        try {
+          await cloudinary.uploader.destroy(req.body.public_id);
+          console.log("Deleted previous image successfully");
+        } catch (error) {
+          console.error("Error deleting previous image on Cloudinary:", error);
+        }
       }
     }
     const skill = await Skill.findByIdAndUpdate(

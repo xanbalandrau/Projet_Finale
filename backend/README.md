@@ -2,12 +2,13 @@
 
 ## Prérequis
 
-- Node.js
-- npm
+- Node.js installé
+- npm (gestionnaire de paquets)
+- MongoDb (Une base de données configurée)
 
 ## Dépendance installé
 
-<img src="../ressources/dependance.png">
+<img src="../ressources/dependenciesBACK.png">
 
 ## Lancé
 
@@ -15,7 +16,7 @@
 npm start
 ```
 
-Pour les dev :
+Pour lancer en mode développement :
 
 ```
 npm run dev
@@ -29,10 +30,6 @@ Pour se connecter sur le dashboard :
 email : xan@gmail.com
 password : xan
 ```
-
-## UML
-
-<img src="../ressources/UML de classe.png" width="1000">
 
 ## Structure du projet
 
@@ -54,6 +51,7 @@ password : xan
 │   │   ├── authMiddleware.js
 │   │   ├── errorHandler.js
 │   │   ├── morganMiddleware.js
+│   │   ├── recaptchaMiddleware.js
 │   ├── models/
 │   │   ├── Settings.js
 │   │   ├── Skills.js
@@ -76,6 +74,7 @@ CLOUD_NAME = <votre nom de compte Cloudinary>
 API_KEY = <votre clé API Cloudinary>
 API_SECRET = <votre clé secrète API Cloudinary>
 JWT_SECRET = <votre clé secrète pour JWT>
+RECAPTCHA_SECRET_KEY = <votre clé secrète reCAPTCHA>
 ```
 
 - Dans .gitignore :
@@ -84,6 +83,10 @@ JWT_SECRET = <votre clé secrète pour JWT>
 node_modules
 .env
 ```
+
+## UML
+
+<img src="../ressources/UML de classe.png" width="1000">
 
 ## API Endpoints
 
@@ -96,3 +99,10 @@ node_modules
 | **POST**   | `/api/skills//addSkill` | Ajouter un skill à l'utilisateur |
 | **PUT**    | `/api/skills/:id`       | Mettre à jour un skill           |
 | **DELETE** | `/api/skills/:id`       | Supprimer un skill               |
+
+## Middleware
+
+- authMiddleware.js : Vérifie si l'utilisateur est authentifié
+- errorHandler.js : Gestion des erreurs globales
+- morganMiddleware.js : Logger HTTP avec Morgan
+- recaptchaMiddleware.js : Vérifie si l'utilisateur à passer le test

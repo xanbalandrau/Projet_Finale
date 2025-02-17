@@ -2,6 +2,12 @@
 
 ## Description :
 
+Vous allez concevoir une application MERN permettant aux utilisateurs de gérer et
+afficher leurs compétences via un portfolio dynamique. L'application devra être
+sécurisée, responsive (mobile-first) et conforme aux exigences RGPD avec un
+système de gestion des cookies (Tarteaucitron.js) et un Captcha (Google
+reCAPTCHA ou Tarteaucitron) pour sécuriser l’authentification.
+
 Voici les [instruction](/ressources/Eval%20Backend.pdf) de l'évaluation.
 
 ## Table des matières
@@ -13,9 +19,9 @@ Voici les [instruction](/ressources/Eval%20Backend.pdf) de l'évaluation.
 - [Utilisation](#utilisation)
 - [Auteur](#auteur)
 
-## Technologies :
+## Technologies:
 
-[![My Skills](https://skillicons.dev/icons?i=vscode,github,nodejs,express,mongodb,react,vercel)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=vscode,npm,git,github,javascript,nodejs,express,mongodb,postman,react,css,bootstrap,render)](https://skillicons.dev)
 
 ## Déploiement:
 
@@ -24,10 +30,15 @@ Voici les [instruction](/ressources/Eval%20Backend.pdf) de l'évaluation.
 
 ## Snapshot:
 
-<img src="./ressources/" width="1200">
-ou un gif (je sais pas encore)
+### Mobile
 
-## Installation :
+<img src="./ressources/Mobile.png" width="1200">
+
+### Dashboard Admin
+
+![Dashboard](./ressources/Dashboard.gif)
+
+## Installation:
 
 ### Procédure d'installation :
 
@@ -50,6 +61,9 @@ Cloner le repository:
 - `npm start`
 - `npm run dev` pour les développeurs
 
+Le back-end sera lancé à l'URL:
+`http://localhost:5000`
+
 ### Installation et lancement du front-end :
 
 1. Aller dans le dossier "frontend"
@@ -65,10 +79,10 @@ Cloner le repository:
 - `npm start`
 
 Le front-end sera lancé à l'URL:
-`http://localhost:`
+`http://localhost:3000`
 
-## Utilisation :
+## Utilisation:
 
-## Auteur :
+## Auteur:
 
 **Xan Balandrau** : [**GitHub**](https://github.com/xanbalandrau/)

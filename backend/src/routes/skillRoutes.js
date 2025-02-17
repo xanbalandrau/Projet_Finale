@@ -12,7 +12,7 @@ const {
 
 const upload = multer({ dest: "uploads/" });
 
-router.get("/", protect, getAllSkills);
+router.get("/", getAllSkills);
 router.post("/addSkill", upload.single("imageFile"), protect, createSkill);
 router.put("/:id", upload.single("imageFile"), protect, updateSkill);
 router.delete("/:id", protect, deleteSkill);
