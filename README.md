@@ -17,7 +17,7 @@ Voici les [instruction](/ressources/Eval%20Backend.pdf) de l'évaluation.
 - [Snapshot](#snapshot)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
-- [Auteur](#auteur)
+- [Auteur et crédit](#auteur)
 
 ## Technologies:
 
@@ -31,6 +31,8 @@ Voici les [instruction](/ressources/Eval%20Backend.pdf) de l'évaluation.
 ## Snapshot:
 
 ### Mobile
+
+⚠️⚠️J'ai utilisé un template de [Soumyajit Behera](https://github.com/soumyajit4419)⚠️⚠️
 
 <img src="./ressources/Mobile.png" width="1200">
 
@@ -85,4 +87,9 @@ Le front-end sera lancé à l'URL:
 
 ## Auteur:
 
-**Xan Balandrau** : [**GitHub**](https://github.com/xanbalandrau/)
+Xan Balandrau : [**GitHub**](https://github.com/xanbalandrau/)
+
+## Crédits:
+
+Ce projet utilise un template créé par [Soumyajit Behera](https://github.com/soumyajit4419).  
+Merci pour son excellent travail !
