@@ -52,13 +52,16 @@ password : xan
 │   │   ├── errorHandler.js
 │   │   ├── morganMiddleware.js
 │   │   ├── recaptchaMiddleware.js
+│   │   ├── validateRequest.js
 │   ├── models/
 │   │   ├── Settings.js
 │   │   ├── Skills.js
 │   │   ├── User.js
 │   ├── routes/
-│       ├── skillRoutes.js
-│       ├── userRoutes.js
+│   |   ├── skillRoutes.js
+│   |   ├── userRoutes.js
+│   ├── validations/
+|   |   ├── authValidation.js
 ├── .env
 ├── .gitignore
 ├── package.json
@@ -106,3 +109,4 @@ node_modules
 - errorHandler.js : Gestion des erreurs globales
 - morganMiddleware.js : Logger HTTP avec Morgan
 - recaptchaMiddleware.js : Vérifie si l'utilisateur à passer le test
+- validateRequest.js : Vérifie si les données envoiées sont valides.

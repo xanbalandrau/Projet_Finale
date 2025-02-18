@@ -7,10 +7,18 @@ const {
   getAllUsers,
 } = require("../controllers/userController");
 const { protectAdmin, protect } = require("../middleware/authMiddleware");
-const { verify } = require("jsonwebtoken");
+
+const { validateLogin } = require("../validations/authValidation");
+const { validateRequest } = require("../middleware/validateRequest");
 
 router.get("/", protect, protectAdmin, getAllUsers);
 router.post("/register", createUser);
-router.post("/login", verifyRecaptcha, loginUser);
+router.post(
+  "/login",
+  verifyRecaptcha,
+  validateLogin,
+  validateRequest,
+  loginUser
+);
 
 module.exports = router;

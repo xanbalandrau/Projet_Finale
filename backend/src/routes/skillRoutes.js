@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
+
 const { protect } = require("../middleware/authMiddleware");
+const { validateRequest } = require("../middleware/validateRequest");
+const { validateCreateSkill } = require("../validations/authValidation");
 
 const {
   createSkill,
@@ -13,8 +16,22 @@ const {
 const upload = multer({ dest: "uploads/" });
 
 router.get("/", getAllSkills);
-router.post("/addSkill", upload.single("imageFile"), protect, createSkill);
-router.put("/:id", upload.single("imageFile"), protect, updateSkill);
+router.post(
+  "/addSkill",
+  upload.single("imageFile"),
+  protect,
+  validateCreateSkill,
+  validateRequest,
+  createSkill
+);
+router.put(
+  "/:id",
+  upload.single("imageFile"),
+  protect,
+  validateCreateSkill,
+  validateRequest,
+  updateSkill
+);
 router.delete("/:id", protect, deleteSkill);
 
 module.exports = router;
