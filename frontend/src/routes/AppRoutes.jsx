@@ -7,14 +7,13 @@ import {
 
 import Home from "../pages/Home/Home";
 import Portfolio from "../pages/Portfolio";
-import Login from "../pages/Login";
+import Login from "../pages/Login/Login";
 import Dashboard from "../pages/Dashboard";
 
 import AdminRoute from "./AdminRoute";
 
 import Navbar from "../components/partials/Navbar";
 import Footer from "../components/partials/Footer";
-
 
 const AppRoutes = () => {
   return (

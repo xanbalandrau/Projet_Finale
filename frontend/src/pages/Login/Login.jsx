@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../context/AuthContext";
+import AuthContext from "../../context/AuthContext";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
-import Particle from "../components/partials/Particle";
+import Particle from "../../components/partials/Particle";
 import { Container } from "react-bootstrap";
 
 const API_URL = process.env.REACT_APP_API_URL;
