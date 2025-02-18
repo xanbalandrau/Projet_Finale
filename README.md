@@ -21,11 +21,11 @@ Voici les [instruction](/ressources/Eval%20Backend.pdf) de l'évaluation.
 
 ## Technologies:
 
-[![My Skills](https://skillicons.dev/icons?i=vscode,npm,git,github,javascript,nodejs,express,mongodb,postman,react,css,bootstrap,render)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=vscode,npm,git,github,javascript,nodejs,express,mongodb,postman,react,css,bootstrap,vercel)](https://skillicons.dev)
 
 ## Déploiement:
 
-- [Vercel Front-End Deployment](https://projet-finale.vercel.app/)
+- [Vercel Front-End Deployment](https://projet-finale-2wxg82f3s-xans-projects-781c6f24.vercel.app)
 - [Render Back-end Deployment](https://projet-finale.onrender.com/)
 
 ## Snapshot:
