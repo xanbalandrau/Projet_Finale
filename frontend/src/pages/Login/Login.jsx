@@ -35,6 +35,9 @@ const Login = () => {
 
       authContext.login(response.data.token);
       navigate("/dashboard");
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
     } catch (error) {
       console.error("Erreur de connexion :", error);
     }
