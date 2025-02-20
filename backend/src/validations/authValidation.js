@@ -30,7 +30,7 @@ exports.validateCreateSkill = [
     .withMessage("La categorie est obligatoire")
     .isLength({ min: 2 })
     .withMessage("La categorie du skill doit faire au moins 2 characteres")
-    .isLength({ max: 20 })
+    .isLength({ max: 15 })
     .withMessage("La categorie du skill doit faire moins de 15 characteres"),
 
   body("level").trim().notEmpty().withMessage("Le niveau est obligatoire"),

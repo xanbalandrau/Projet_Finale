@@ -164,6 +164,11 @@ html {
   padding: 10px 0 !important;
 }
 
+.image-card {
+  height: 300px !important;
+  object-fit: cover !important;
+  overflow: hidden !important;
+}
 /* Login */
 .formLogin {
   position: relative !important;
