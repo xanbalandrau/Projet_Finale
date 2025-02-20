@@ -43,11 +43,6 @@ const NavBar = () => {
               </Link>
             </Nav.Item>
 
-            <Nav.Item>
-              <Link to="/login" onClick={() => updateExpanded(false)}>
-                Login
-              </Link>
-            </Nav.Item>
             {isAuthenticated ? (
               <Nav.Item>
                 <Link to="/dashboard" onClick={() => updateExpanded(false)}>
@@ -55,7 +50,11 @@ const NavBar = () => {
                 </Link>
               </Nav.Item>
             ) : (
-              ""
+              <Nav.Item>
+                <Link to="/login" onClick={() => updateExpanded(false)}>
+                  Login
+                </Link>
+              </Nav.Item>
             )}
           </Nav>
         </Navbar.Collapse>

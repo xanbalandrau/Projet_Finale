@@ -85,6 +85,7 @@ RECAPTCHA_SECRET_KEY = <votre clé secrète reCAPTCHA>
 ```
 node_modules
 .env
+logs
 ```
 
 ## UML

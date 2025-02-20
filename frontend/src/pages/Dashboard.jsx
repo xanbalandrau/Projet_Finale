@@ -40,6 +40,17 @@ const Dashboard = () => {
       alert("Please fill in all fields");
       return;
     }
+    if (!newSkill.imageFile) {
+      alert("Please select an image file");
+      return;
+    }
+
+    if (newSkill.title.length < 3 || newSkill.category.length < 3) {
+      alert("Title and category must be at least 3 characters long");
+    }
+    if (newSkill.title.length >= 20 || newSkill.category.length >= 20) {
+      alert("Title and category must be less than 20 characters long");
+    }
 
     const formData = new FormData();
     formData.append("title", newSkill.title);
@@ -190,7 +201,10 @@ const Dashboard = () => {
 
       {/* List of skills */}
       <h3 className="text-white">Liste des compétences</h3>
-      <ul className="list-group">
+      <ul
+        className="list-group"
+        style={{ display: "flex", flexDirection: "column-reverse" }}
+      >
         {skills.map((skill) => (
           <li
             key={skill._id}
